@@ -9,3 +9,5 @@ class Note(models.Model):
 
     def __str__(self):
         return f'{self.notes} created at {self.created_at}'
+
+
