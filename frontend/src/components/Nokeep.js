@@ -60,31 +60,40 @@ class Nokeep extends Component {
         <h2>Welcome to NoKeep!</h2>
         <hr />
 
+        <div className="row mt-5">
+        <div className="col-md-4 offset-md-1">
         <h3>Add new note</h3>
         <form onSubmit={this.submitNote}>
-          <input
+        <div className="form-group">
+        <input
             value={text}
+            className="form-control"
             placeholder="Enter note here..."
             onChange={ this.handleChange }
             required />
-           <button onClick={this.resetForm}>Reset</button>
+            </div>
+           <button onClick={this.resetForm} className="btn btn-success">Reset</button>
 
-          <input type="submit" value="Save Note" />
+          <input type="submit" value="Save Note" className="btn btn-success" />
+
         </form>
+         </div>
 
-
+        <div className="col-md-4 offset-md-1">
         <h3>Notes</h3>
-        <table>
+        <table className="table">
           <tbody>
             {this.props.notes.map((note, id) => (
               <tr key={`note_${id}`}>
                 <td>{note.text}</td>
-                <td><button onClick={() => this.selectForEdit(id)}>edit</button></td>
-                <td><button onClick={() => this.props.deleteNote(id)}>delete</button></td>
+                <td><button onClick={() => this.selectForEdit(id)} className="btn btn-success">edit</button></td>
+                <td><button onClick={() => this.props.deleteNote(id)} className="btn btn-success">delete</button></td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
+        </div>
       </div>
 
 
